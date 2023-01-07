@@ -1,0 +1,36 @@
+{
+  "name": "svelte-preprocess-directives",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Svelte preprocessor that allows class and style directives to be used on Svelte components.",
+  "author": "Eric Liu (https://github.com/metonym)",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "vitest",
+    "prepack": "tsc"
+  },
+  "dependencies": {
+    "magic-string": "^0.27.0"
+  },
+  "devDependencies": {
+    "svelte": "^3.55.0",
+    "typescript": "^4.9.4",
+    "vitest": "^0.26.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metonym/svelte-preprocess-directives"
+  },
+  "homepage": "https://github.com/metonym/svelte-preprocess-directives",
+  "bugs": "https://github.com/metonym/svelte-preprocess-directives/issues",
+  "keywords": [
+    "svelte",
+    "svelte preprocessor",
+    "component",
+    "directive"
+  ],
+  "files": [
+    "dist"
+  ]
+}
