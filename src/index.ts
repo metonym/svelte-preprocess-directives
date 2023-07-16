@@ -14,7 +14,7 @@ export const componentDirectives: SveltePreprocessor<"markup"> = () => {
         content.slice(node.start, node.end);
 
       walk(ast, {
-        enter(node: Element) {
+        enter(node) {
           if (node.type === "InlineComponent") {
             const classes = new Map();
             const styles = new Map();
