@@ -21,14 +21,17 @@ Attempting to use directives on an inline Svelte component will throw a compilin
 ## Installation
 
 ```bash
-# Yarn
-yarn add -D svelte-preprocess-directives
-
 # NPM
 npm i -D svelte-preprocess-directives
 
 # pnpm
 pnpm i -D svelte-preprocess-directives
+
+# Bun
+bun i -D svelte-preprocess-directives
+
+# Yarn
+yarn add -D svelte-preprocess-directives
 ```
 
 ## Usage
