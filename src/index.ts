@@ -1,5 +1,6 @@
 import MagicString from "magic-string";
-import { parse, walk } from "svelte/compiler";
+import { parse } from 'svelte/compiler';
+import { walk } from 'estree-walker';
 import type { Element } from "svelte/types/compiler/interfaces";
 import type { SveltePreprocessor } from "svelte/types/compiler/preprocess";
 
