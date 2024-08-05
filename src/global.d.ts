@@ -1,14 +1,10 @@
-declare module "svelte/compiler" {
+declare module "estree-walker" {
   import type { Ast, Element } from "svelte/types/compiler/interfaces";
-
-  interface AugmentedElement extends Element {
-    type: "InlineComponent";
-  }
 
   export function walk(
     ast: Ast,
     options: {
-      enter: (node: AugmentedElement, parentNode: AugmentedElement) => void;
+      enter: (node: Element, parentNode: Element) => void;
     }
   ): void;
 }
