@@ -1,6 +1,6 @@
 {
   "name": "svelte-preprocess-directives",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "description": "Svelte preprocessor that allows class and style directives to be used on Svelte components.",
   "author": "Eric Liu (https://github.com/metonym)",
