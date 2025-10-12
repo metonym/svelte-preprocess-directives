@@ -1,8 +1,6 @@
 import MagicString from "magic-string";
-import { parse } from 'svelte/compiler';
-import { walk } from 'estree-walker';
-import type { Element } from "svelte/types/compiler/interfaces";
-import type { SveltePreprocessor } from "svelte/types/compiler/preprocess";
+import { parse, type SveltePreprocessor } from 'svelte/compiler';
+import { AST, walk } from 'estree-walker';
 
 export const componentDirectives: SveltePreprocessor<"markup"> = () => {
   return {
@@ -11,8 +9,7 @@ export const componentDirectives: SveltePreprocessor<"markup"> = () => {
 
       const ast = parse(content);
       const s = new MagicString(content);
-      const slice = (node: Partial<Pick<Element, "start" | "end">>) =>
-        content.slice(node.start, node.end);
+      const slice = (node: AST.Element) => content.slice(node.start, node.end);
 
       walk(ast, {
         enter(node) {
@@ -20,7 +17,7 @@ export const componentDirectives: SveltePreprocessor<"markup"> = () => {
             const classes = new Map();
             const styles = new Map();
 
-            const attributes = node.attributes.filter((attribute) => {
+            const attributes = node.attributes.filter((attribute: AST.Attribute) => {
               const { name, value, type, expression, modifiers } = attribute;
 
               if (name === "class") {

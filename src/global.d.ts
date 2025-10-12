@@ -1,10 +1,20 @@
 declare module "estree-walker" {
-  import type { Ast, Element } from "svelte/types/compiler/interfaces";
+  export type { AST } from "svelte/src/compiler/types/template";
 
-  export function walk(
-    ast: Ast,
+  export declare function walk(
+    ast: AST,
     options: {
-      enter: (node: Element, parentNode: Element) => void;
+      enter?: (node: AST.SvelteNode, parent: AST.SvelteNode) => void;
+      leave?: (node: AST.SvelteNode, parent: AST.SvelteNode) => void;
     }
-  ): void;
+  ): AST.Node | null;
+}
+
+declare module "svelte/compiler" {
+  export type SveltePreprocessor<
+    PreprocessorType extends keyof PreprocessorGroup,
+    Options = unknown
+  > = (
+    options?: Options
+  ) => Required<Pick<PreprocessorGroup, PreprocessorType>>;
 }
